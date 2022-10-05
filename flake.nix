@@ -9,16 +9,19 @@
         pkgs = import nixpkgs { system = system; };
       in
       {
-        packages.hello = pkgs.hello;
         packages.julia = import ./julia.nix {
           inherit pkgs system;
         };
 
-        packages. startPluto = pkgs.writeScriptBin "startPluto" ''
+        packages.startPluto = pkgs.writeScriptBin "startPluto" ''
           #!/bin/sh
           ${self.packages.${system}.julia}/bin/julia --project=. --optimize=0 -e "import Pluto; Pluto.run()"
         '';
-        defaultPackage = self.packages.${system}.hello;
+        packages.buildNotebook = pkgs.writeScriptBin "buildNotebook" ''
+          #!/bin/sh
+          ${self.packages.${system}.julia}/bin/julia --project=. --optimize=0 -e 'import Pkg; Pkg.instantiate(); import PlutoSliderServer; PlutoSliderServer.export_notebook("./notebook.jl")'
+        '';
+        defaultPackage = self.packages.${system}.startPluto;
         devShell = pkgs.mkShell {
           buildInputs = [ self.packages.${system}.julia self.packages.${system}.startPluto ];
         };

@@ -1,0 +1,26 @@
+name: Build Notebook
+
+on:
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    - cron:  '0 5 * * *'
+  # Triggers the workflow on push or pull request events but only for the "main" branch
+  push:
+    branches: [ "main" ]
+
+jobs:
+  buildNotebook:
+    environment: cachix
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2.4.0
+      - uses: cachix/install-nix-action@v15
+        with:
+          extra_nix_config: |
+            access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
+      - run: GITHUB_ACCESS_TOKEN=${{ secrets.GITHUB_TOKEN }} nix run .#buildNotebook
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          # Required
+          commit_message: "[Bot] Updated notebook"
+          branch: gh-pages
