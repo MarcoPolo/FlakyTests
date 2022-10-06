@@ -173,12 +173,14 @@ end |> Iterators.flatten |> collect
 @chain DataFrame(flaky_tests_transformed) begin
 	transform(:3 => ByRow(x -> x["html_url"]) => :html_url)
 	transform(:3 => ByRow(x -> x["id"]) => :id)
+	rename(:3 => :run)
 	transform(:2 => ByRow(x -> match(r"(Test[^\s]*)", x)[1]) => :Test)
 	rename(:1 => :Filename)
 	rename(:2 => :FailLine)
 	groupby([:Test, :id])
-	combine( :Filename => parse_os ∘ first => :OS, :html_url => first => :html_url)
-	select([:Test, :id, :html_url, :OS])
+	combine( :Filename => parse_os ∘ first => :OS, :html_url => first => :html_url, :run => first => :run)
+	transform(:run => ByRow(x -> x["run_started_at"]) => :run_date)
+	select([:Test, :id, :run_date, :html_url, :OS])
 	sort(:Test)
 end
 
