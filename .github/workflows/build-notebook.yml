@@ -21,6 +21,7 @@ jobs:
       - run: GITHUB_ACCESS_TOKEN=${{ secrets.GITHUB_TOKEN }} nix run .#buildNotebook
       - run: mkdir public
       - run: cp notebook.html public/index.html
+      - run: cp current-score.svg public/current-score.svg
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
