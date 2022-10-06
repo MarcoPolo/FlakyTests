@@ -19,8 +19,10 @@ jobs:
           extra_nix_config: |
             access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
       - run: GITHUB_ACCESS_TOKEN=${{ secrets.GITHUB_TOKEN }} nix run .#buildNotebook
-      - uses: stefanzweifel/git-auto-commit-action@v4
+      - run: mkdir public
+      - run: cp notebook.html public/index.html
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          # Required
-          commit_message: "[Bot] Updated notebook"
-          branch: gh-pages
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
