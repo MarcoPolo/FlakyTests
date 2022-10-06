@@ -44,6 +44,9 @@ md"Workflow to check:"
 # ╔═╡ c2320b04-276d-43e3-b166-d7b151f179ff
 defaultWorkflowName = "Go Test"
 
+# ╔═╡ f9537631-7cda-4e38-8e47-105ad8aa2f31
+md"## Implementation"
+
 # ╔═╡ d3323ee3-9466-4ccb-b8a6-2c4f2e2a752e
 gh_auth = GitHub.authenticate(ENV["GITHUB_ACCESS_TOKEN"])
 
@@ -96,9 +99,6 @@ end
 # ╔═╡ 29e69e6c-a9fd-4e94-84ce-52d2dbb5451e
 successful_runs_after_retry[2]
 
-# ╔═╡ dae6acc3-c5c7-46ab-9501-d9a168a52a92
-successful_runs_after_retry[1]
-
 # ╔═╡ 7bc99df9-d9e7-4303-b36e-84faef7cc325
 @GitHub.api_default function get_run_log_url(api::GitHub.GitHubAPI, run_id, run_attempt; options...)
 	apiUrl = "/repos/$(GitHub.name(repo))/actions/runs/$run_id/attempts/$run_attempt"
@@ -117,9 +117,6 @@ function maybe_download_log(run_id, run_attempt)
 	return path
 end
 
-# ╔═╡ 5fc3435f-8b0e-43d3-b98c-1f2af08c1702
-flaky_run_url = maybe_download_log(successful_runs_after_retry[2]["id"], 1)
-
 # ╔═╡ d69e309e-7e21-40c4-bca9-d19fab26541b
 all_logs = Iterators.map(
 	Iterators.flatten(map(x -> map(run_attempt -> (x, x["id"], run_attempt),[1:x["run_attempt"]-1;]), successful_runs_after_retry))
@@ -130,9 +127,6 @@ all_logs = Iterators.map(
 		nothing
 	end
 end
-
-# ╔═╡ 4a8c8a80-bc89-4129-a86c-864c1e8d216d
-md"# Plots"
 
 # ╔═╡ 04b17c05-af01-4a2c-a4ec-c44945466f41
 function parse_os(s)
@@ -164,22 +158,25 @@ flaky_tests = @chain Iterators.filter(!isnothing, all_logs) begin
   Iterators.map(_) do runAndPath
 	  matches = @chain runAndPath[2] begin
 		  filter_zipped_logs(l -> contains(l, "--- FAIL:"), _)
-		  # Iterators.flatten
 		  collect
 	  end
 	  return (runAndPath[1], matches)
   end |> collect
 end
 
-# ╔═╡ 3085b68e-0cba-4e10-839f-12ed82cc051c
-map(flaky_tests) do l
-	l[2][2]
-end
-
 # ╔═╡ 4bfea66a-28f7-4c5a-adcc-fc04ff5cddd3
 flaky_tests_transformed = map(flaky_tests) do t 
 	map(x -> (x[1],x[2],t[1]), t[2]) 
 end |> Iterators.flatten |> collect
+
+# ╔═╡ be8d0bac-9e22-4b99-bcb9-304e28da169d
+@chain DataFrame(flaky_tests_transformed) begin
+	transform(:3 => ByRow(x -> x["html_url"]) => :html_url)
+	transform(:2 => ByRow(x -> match(r"(Test[^\s]*)", x)[1]) => :Test)
+	rename(:1 => :Filename)
+	rename(:2 => :FailLine)
+	select([:Test, :html_url, :Filename])
+end
 
 # ╔═╡ 8d2036e8-fadb-4da4-95ed-35c22fec8b16
 flaky_tests_df = @chain map(flaky_tests_transformed) do l
@@ -193,12 +190,6 @@ end
 
 # ╔═╡ 26df8f0a-5a1e-4c33-af11-e1c983df4484
 flaky_tests_df |> @vlplot(:bar, y=:Test, x=:Count, color=:OS)
-
-# ╔═╡ be8d0bac-9e22-4b99-bcb9-304e28da169d
-@chain DataFrame(flaky_tests_transformed) begin
-	transform(:3 => ByRow(x -> x["html_url"]) => :html_url)
-	select(Not(:3))
-end
 
 # ╔═╡ 429bb5e5-6c12-4ebc-adb9-5f6e2b65dfac
 flaky_tests
@@ -757,35 +748,32 @@ version = "17.4.0+0"
 # ╟─8799c8e7-a708-4a8a-ba77-5065662e8ec4
 # ╟─c2320b04-276d-43e3-b166-d7b151f179ff
 # ╟─26df8f0a-5a1e-4c33-af11-e1c983df4484
+# ╟─be8d0bac-9e22-4b99-bcb9-304e28da169d
+# ╟─f9537631-7cda-4e38-8e47-105ad8aa2f31
 # ╟─105c8219-439f-4ab2-9b3d-a1a183c69144
 # ╟─8b9dd7dd-52ea-4a9c-8b18-08204d6e5f1a
 # ╟─4e75e173-7da7-4aed-8b9d-98eb975ea87c
 # ╟─3f4e98f7-6856-474a-8094-bb4ba49eb578
-# ╠═f4ed5a0d-a4ed-491d-bc2e-b857b23160a7
+# ╟─f4ed5a0d-a4ed-491d-bc2e-b857b23160a7
 # ╠═64c3a7a7-b810-4331-b303-8b86e031c2ec
 # ╠═65e07a73-3f05-4842-a33f-e1674697afe3
 # ╠═89e58a37-d075-475e-b66a-3bfec1b6dae2
 # ╠═aa767183-6ffc-4345-90f6-fd9d0100fc44
 # ╟─d3323ee3-9466-4ccb-b8a6-2c4f2e2a752e
 # ╠═29e69e6c-a9fd-4e94-84ce-52d2dbb5451e
-# ╠═5fc3435f-8b0e-43d3-b98c-1f2af08c1702
-# ╠═c658bd71-84b2-422c-bf64-5c35b0b9a09e
-# ╠═b593638c-0347-4c81-9552-c42a43867dad
-# ╠═d69e309e-7e21-40c4-bca9-d19fab26541b
-# ╠═dae6acc3-c5c7-46ab-9501-d9a168a52a92
+# ╟─c658bd71-84b2-422c-bf64-5c35b0b9a09e
+# ╟─b593638c-0347-4c81-9552-c42a43867dad
+# ╟─d69e309e-7e21-40c4-bca9-d19fab26541b
 # ╠═d76b3c2e-bf48-40f2-885b-3658d95fc986
 # ╟─7bc99df9-d9e7-4303-b36e-84faef7cc325
-# ╠═4a8c8a80-bc89-4129-a86c-864c1e8d216d
-# ╠═3085b68e-0cba-4e10-839f-12ed82cc051c
 # ╠═8d2036e8-fadb-4da4-95ed-35c22fec8b16
 # ╟─04b17c05-af01-4a2c-a4ec-c44945466f41
-# ╠═be8d0bac-9e22-4b99-bcb9-304e28da169d
 # ╠═4bfea66a-28f7-4c5a-adcc-fc04ff5cddd3
 # ╠═429bb5e5-6c12-4ebc-adb9-5f6e2b65dfac
 # ╟─92b717b5-ef2d-4580-b98b-224786e06d92
 # ╟─e87dbb91-2721-477e-8f1a-6d2327b03ee8
-# ╟─1f17eef4-2ef2-4bc3-a4ca-0709205afbb1
-# ╟─f2d9e292-52e8-46ee-832e-acad12b2380b
+# ╠═1f17eef4-2ef2-4bc3-a4ca-0709205afbb1
+# ╠═f2d9e292-52e8-46ee-832e-acad12b2380b
 # ╠═3575ac50-cd4f-494d-ab1b-c1b0fdfa230c
 # ╠═9ab4ced1-e416-44a9-af44-3b92e3f75631
 # ╟─00000000-0000-0000-0000-000000000001
