@@ -176,6 +176,7 @@ end |> Iterators.flatten |> collect
 	rename(:1 => :Filename)
 	rename(:2 => :FailLine)
 	select([:Test, :html_url, :Filename])
+	sort(:Test)
 end
 
 # ╔═╡ 8d2036e8-fadb-4da4-95ed-35c22fec8b16
@@ -748,7 +749,7 @@ version = "17.4.0+0"
 # ╟─8799c8e7-a708-4a8a-ba77-5065662e8ec4
 # ╟─c2320b04-276d-43e3-b166-d7b151f179ff
 # ╟─26df8f0a-5a1e-4c33-af11-e1c983df4484
-# ╟─be8d0bac-9e22-4b99-bcb9-304e28da169d
+# ╠═be8d0bac-9e22-4b99-bcb9-304e28da169d
 # ╟─f9537631-7cda-4e38-8e47-105ad8aa2f31
 # ╟─105c8219-439f-4ab2-9b3d-a1a183c69144
 # ╟─8b9dd7dd-52ea-4a9c-8b18-08204d6e5f1a
