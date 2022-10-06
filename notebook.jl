@@ -172,10 +172,13 @@ end |> Iterators.flatten |> collect
 # ╔═╡ be8d0bac-9e22-4b99-bcb9-304e28da169d
 @chain DataFrame(flaky_tests_transformed) begin
 	transform(:3 => ByRow(x -> x["html_url"]) => :html_url)
+	transform(:3 => ByRow(x -> x["id"]) => :id)
 	transform(:2 => ByRow(x -> match(r"(Test[^\s]*)", x)[1]) => :Test)
 	rename(:1 => :Filename)
 	rename(:2 => :FailLine)
-	select([:Test, :html_url, :Filename])
+	groupby([:Test, :id])
+	combine( :Filename => parse_os ∘ first => :OS, :html_url => first => :html_url)
+	select([:Test, :id, :html_url, :OS])
 	sort(:Test)
 end
 
@@ -183,10 +186,18 @@ end
 flaky_tests_df = @chain map(flaky_tests_transformed) do l
 	match(r"(Test[^\s]*)", l[2])[1]
 end begin
-	DataFrame(Test=_, OS=map(x->parse_os(x[1]),flaky_tests_transformed))
+	DataFrame(Test=_, OS=map(x->parse_os(x[1]),flaky_tests_transformed), run=map(x -> x[3], flaky_tests_transformed))
+	transform(:run => ByRow(x -> x["id"]) => :id)
+	select(Not(:run))
+
+
+	# Dedupe the same failure in the same run+os
+	groupby([:id, :OS, :Test])
+	combine(:Test => first => :Test)
+	# Count failures by test + os
 	groupby([:Test, :OS])
 	combine(:Test=> length => :Count)
-	@aside sort!(_, :Count, rev=true)
+	sort(:Count, rev=true)
 end
 
 # ╔═╡ 26df8f0a-5a1e-4c33-af11-e1c983df4484
@@ -748,7 +759,7 @@ version = "17.4.0+0"
 # ╟─8142cf70-df0a-40b4-979c-2fd5ecc254f2
 # ╟─8799c8e7-a708-4a8a-ba77-5065662e8ec4
 # ╟─c2320b04-276d-43e3-b166-d7b151f179ff
-# ╟─26df8f0a-5a1e-4c33-af11-e1c983df4484
+# ╠═26df8f0a-5a1e-4c33-af11-e1c983df4484
 # ╠═be8d0bac-9e22-4b99-bcb9-304e28da169d
 # ╟─f9537631-7cda-4e38-8e47-105ad8aa2f31
 # ╟─105c8219-439f-4ab2-9b3d-a1a183c69144
