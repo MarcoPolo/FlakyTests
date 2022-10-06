@@ -91,7 +91,7 @@ For the `$(selectedWorkflow["name"])` workflow
 
 # ╔═╡ 3f4e98f7-6856-474a-8094-bb4ba49eb578
 begin
-	r=HTTP.request(:GET, "https://img.shields.io/badge/flakiness--score-$score-blue")
+	r=HTTP.request(:GET, "https://img.shields.io/badge/ci--flakiness--score-$score-blue")
 	write("./current-score.svg", r.body)
 	"Wrote badge for $score"
 end
