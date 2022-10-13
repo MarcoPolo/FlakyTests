@@ -44,6 +44,14 @@ md"Workflow to check:"
 # ╔═╡ c2320b04-276d-43e3-b166-d7b151f179ff
 defaultWorkflowName = "Go Test"
 
+# ╔═╡ 29c69892-54bc-4882-a1ea-3b978dfed033
+md"### Top 10 Flaky tests, sorted by recency, then count"
+
+# ╔═╡ 38a79f14-1905-4ff7-8dcb-00c0d0cffae1
+md"### All Flaky tests, sorted by recency, then count
+(expand the array, to see them all)
+"
+
 # ╔═╡ f9537631-7cda-4e38-8e47-105ad8aa2f31
 md"## Implementation"
 
@@ -170,7 +178,7 @@ flaky_tests_transformed = map(flaky_tests) do t
 end |> Iterators.flatten |> collect
 
 # ╔═╡ be8d0bac-9e22-4b99-bcb9-304e28da169d
-@chain DataFrame(flaky_tests_transformed) begin
+flaky_tests_table = @chain DataFrame(flaky_tests_transformed) begin
 	transform(:3 => ByRow(x -> x["html_url"]) => :html_url)
 	transform(:3 => ByRow(x -> x["id"]) => :id)
 	rename(:3 => :run)
@@ -180,8 +188,22 @@ end |> Iterators.flatten |> collect
 	groupby([:Test, :id])
 	combine( :Filename => parse_os ∘ first => :OS, :html_url => first => :html_url, :run => first => :run)
 	transform(:run => ByRow(x -> x["run_started_at"]) => :run_date)
-	select([:Test, :id, :run_date, :html_url, :OS])
-	sort(:Test)
+	sort(:run_date, rev = true)
+	groupby([:Test])
+	# sort(:run_date, rev = true)
+	combine(:run_date => first => :run_date, :id => length => :count, :id => first => :id, :html_url => first => :html_url)
+
+	# select([:Test, :id, :run_date, :html_url, :OS])
+	# sort(:run_date, rev = true)
+end
+
+# ╔═╡ 5fd73cbc-31d5-4c9b-a7a5-b1d7746ffbd7
+# A bit of a hack to render all the flaky tests. Since the default table viewer only renders 10 entries. The workaround is to render only 10 entries at a time, and return a vector of these tables.
+map([0:Int(round(nrow(flaky_tests_table) / 20, RoundUp));]) do x
+	let start_idx = 1+x*10,
+	end_idx = min(start_idx+10, nrow(flaky_tests_table))
+		flaky_tests_table[start_idx:end_idx, :]
+	end
 end
 
 # ╔═╡ 8d2036e8-fadb-4da4-95ed-35c22fec8b16
@@ -762,7 +784,10 @@ version = "17.4.0+0"
 # ╟─8799c8e7-a708-4a8a-ba77-5065662e8ec4
 # ╟─c2320b04-276d-43e3-b166-d7b151f179ff
 # ╟─26df8f0a-5a1e-4c33-af11-e1c983df4484
+# ╟─29c69892-54bc-4882-a1ea-3b978dfed033
 # ╟─be8d0bac-9e22-4b99-bcb9-304e28da169d
+# ╟─38a79f14-1905-4ff7-8dcb-00c0d0cffae1
+# ╟─5fd73cbc-31d5-4c9b-a7a5-b1d7746ffbd7
 # ╟─f9537631-7cda-4e38-8e47-105ad8aa2f31
 # ╟─105c8219-439f-4ab2-9b3d-a1a183c69144
 # ╟─8b9dd7dd-52ea-4a9c-8b18-08204d6e5f1a
