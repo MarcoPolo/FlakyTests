@@ -17,6 +17,10 @@
           #!/bin/sh
           ${self.packages.${system}.julia}/bin/julia --project=. --optimize=0 -e "import Pluto; Pluto.run()"
         '';
+        packages.init = pkgs.writeScriptBin "startPluto" ''
+          #!/bin/sh
+          ${self.packages.${system}.julia}/bin/julia --project=. --optimize=0 -e 'import Pkg; Pkg.instantiate();'
+        '';
         packages.buildNotebook = pkgs.writeScriptBin "buildNotebook" ''
           #!/bin/sh
           ${self.packages.${system}.julia}/bin/julia --project=. --optimize=0 -e 'import Pkg; Pkg.instantiate(); import PlutoSliderServer; PlutoSliderServer.export_notebook("./notebook.jl")'
