@@ -1,0 +1,38 @@
+2022-09-14T18:02:46.7962329Z Current runner version: '2.296.2'
+2022-09-14T18:02:46.7995124Z ##[group]Operating System
+2022-09-14T18:02:46.7995698Z Microsoft Windows Server 2022
+2022-09-14T18:02:46.7996040Z 10.0.20348
+2022-09-14T18:02:46.7996302Z Datacenter
+2022-09-14T18:02:46.7996651Z ##[endgroup]
+2022-09-14T18:02:46.7996981Z ##[group]Runner Image
+2022-09-14T18:02:46.7997313Z Image: windows-2022
+2022-09-14T18:02:46.7997636Z Version: 20220911.1
+2022-09-14T18:02:46.7998158Z Included Software: https://github.com/actions/runner-images/blob/win22/20220911.1/images/win/Windows2022-Readme.md
+2022-09-14T18:02:46.7998787Z Image Release: https://github.com/actions/runner-images/releases/tag/win22%2F20220911.1
+2022-09-14T18:02:46.7999237Z ##[endgroup]
+2022-09-14T18:02:46.7999608Z ##[group]Runner Image Provisioner
+2022-09-14T18:02:46.8000136Z 1.0.0.0-main-20220907-1
+2022-09-14T18:02:46.8000430Z ##[endgroup]
+2022-09-14T18:02:46.8001530Z ##[group]GITHUB_TOKEN Permissions
+2022-09-14T18:02:46.8002167Z Actions: write
+2022-09-14T18:02:46.8002680Z Checks: write
+2022-09-14T18:02:46.8003034Z Contents: write
+2022-09-14T18:02:46.8003387Z Deployments: write
+2022-09-14T18:02:46.8003724Z Discussions: write
+2022-09-14T18:02:46.8004064Z Issues: write
+2022-09-14T18:02:46.8004407Z Metadata: read
+2022-09-14T18:02:46.8004699Z Packages: write
+2022-09-14T18:02:46.8005032Z Pages: write
+2022-09-14T18:02:46.8005401Z PullRequests: write
+2022-09-14T18:02:46.8005741Z RepositoryProjects: write
+2022-09-14T18:02:46.8006142Z SecurityEvents: write
+2022-09-14T18:02:46.8006498Z Statuses: write
+2022-09-14T18:02:46.8006785Z ##[endgroup]
+2022-09-14T18:02:46.8010815Z Secret source: Actions
+2022-09-14T18:02:46.8011474Z Prepare workflow directory
+2022-09-14T18:02:46.9083692Z Prepare all required actions
+2022-09-14T18:02:46.9413886Z Getting action download info
+2022-09-14T18:02:47.2053027Z Download action repository 'actions/checkout@v2' (SHA:7884fcad6b5d53d10323aee724dc68d8b9096a2e)
+2022-09-14T18:02:47.9932689Z Download action repository 'actions/setup-go@v2' (SHA:bfdd3570ce990073878bf10f6b2d79082de49492)
+2022-09-14T18:02:48.4924732Z Download action repository 'protocol/multiple-go-modules@v1.2' (SHA:a9324050387ecb413e92dac85a9def4bef505d46)
+2022-09-14T18:02:48.8575207Z Download action repository 'codecov/codecov-action@81cd2dc8148241f03f5839d295e000b8f761e378' (SHA:81cd2dc8148241f03f5839d295e000b8f761e378)

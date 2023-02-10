@@ -1,0 +1,42 @@
+2022-09-14T18:15:48.4358204Z ##[group]Run codecov/codecov-action@81cd2dc8148241f03f5839d295e000b8f761e378
+2022-09-14T18:15:48.4358704Z with:
+2022-09-14T18:15:48.4359223Z   files: ./examples/ipfs-camp-2019/module-coverage.txt,./examples/module-coverage.txt,./examples/pubsub/chat/module-coverage.txt,./module-coverage.txt
+2022-09-14T18:15:48.4359719Z   env_vars: OS=windows, GO=1.19.x
+2022-09-14T18:15:48.4359974Z env:
+2022-09-14T18:15:48.4360461Z   COVERAGES: ./examples/ipfs-camp-2019/module-coverage.txt,./examples/module-coverage.txt,./examples/pubsub/chat/module-coverage.txt,./module-coverage.txt
+2022-09-14T18:15:48.4361159Z   GOROOT: C:\hostedtoolcache\windows\go\1.19.1\x64
+2022-09-14T18:15:48.4361460Z ##[endgroup]
+2022-09-14T18:15:49.2546648Z ==> windows OS detected
+2022-09-14T18:15:50.2460723Z https://uploader.codecov.io/latest/windows/codecov.exe.SHA256SUM
+2022-09-14T18:15:50.4040703Z ==> SHASUM file signed by key id 806bb28aed779869
+2022-09-14T18:15:50.6162783Z ==> Uploader SHASUM verified (370d2ba9fe3d2d3e559f3f9fb7325402300585a684def828fd441e8a08ce675b  codecov.exe)
+2022-09-14T18:15:50.6164009Z ==> Running version latest
+2022-09-14T18:15:50.7587326Z ==> Running version v0.3.1
+2022-09-14T18:15:50.7641957Z [command]D:\a\_actions\codecov\codecov-action\81cd2dc8148241f03f5839d295e000b8f761e378\dist\codecov.exe -n "" -Q github-action-3.1.0 -e OS=windows,GO=1.19.x -f ./examples/ipfs-camp-2019/module-coverage.txt -f ./examples/module-coverage.txt -f ./examples/pubsub/chat/module-coverage.txt -f ./module-coverage.txt
+2022-09-14T18:15:51.6929618Z [2022-09-14T18:15:51.120Z] ['info'] 
+2022-09-14T18:15:51.6930054Z      _____          _
+2022-09-14T18:15:51.6930330Z     / ____|        | |
+2022-09-14T18:15:51.6930613Z    | |     ___   __| | ___  ___ _____   __
+2022-09-14T18:15:51.6930931Z    | |    / _ \ / _` |/ _ \/ __/ _ \ \ / /
+2022-09-14T18:15:51.6931250Z    | |___| (_) | (_| |  __/ (_| (_) \ V /
+2022-09-14T18:15:51.6931559Z     \_____\___/ \__,_|\___|\___\___/ \_/
+2022-09-14T18:15:51.6931726Z 
+2022-09-14T18:15:51.6932058Z   Codecov report uploader 0.3.1
+2022-09-14T18:15:51.6932641Z [2022-09-14T18:15:51.164Z] ['info'] => Project root located at: D:/a/go-libp2p/go-libp2p
+2022-09-14T18:15:51.6933186Z [2022-09-14T18:15:51.168Z] ['info'] -> No token specified or token is empty
+2022-09-14T18:15:51.6933706Z [2022-09-14T18:15:51.238Z] ['info'] Searching for coverage files...
+2022-09-14T18:15:51.6934213Z [2022-09-14T18:15:51.325Z] ['info'] => Found 4 possible coverage files:
+2022-09-14T18:15:51.6934724Z   ./examples/ipfs-camp-2019/module-coverage.txt
+2022-09-14T18:15:51.6935135Z   ./examples/module-coverage.txt
+2022-09-14T18:15:51.6935578Z   ./examples/pubsub/chat/module-coverage.txt
+2022-09-14T18:15:51.6935965Z   ./module-coverage.txt
+2022-09-14T18:15:51.6936495Z [2022-09-14T18:15:51.325Z] ['info'] Processing ./examples/ipfs-camp-2019/module-coverage.txt...
+2022-09-14T18:15:51.6937106Z [2022-09-14T18:15:51.327Z] ['info'] Processing ./examples/module-coverage.txt...
+2022-09-14T18:15:51.6937707Z [2022-09-14T18:15:51.328Z] ['info'] Processing ./examples/pubsub/chat/module-coverage.txt...
+2022-09-14T18:15:51.6938243Z [2022-09-14T18:15:51.329Z] ['info'] Processing ./module-coverage.txt...
+2022-09-14T18:15:53.0155833Z [2022-09-14T18:15:53.014Z] ['info'] Detected GitHub Actions as the CI provider.
+2022-09-14T18:15:53.0173564Z [2022-09-14T18:15:53.016Z] ['info'] Pinging Codecov: https://codecov.io/upload/v4?package=github-action-3.1.0-uploader-0.3.1&token=*******&branch=noise-server-send-early-data&build=3055001556&build_url=https%3A%2F%2Fgithub.com%2Flibp2p%2Fgo-libp2p%2Factions%2Fruns%2F3055001556&commit=24459c5264da47b2d1431bc06473a13964fe09ca&job=Go+Test&pr=&service=github-actions&slug=libp2p%2Fgo-libp2p&name=&tag=&flags=&parent=
+2022-09-14T18:15:56.6814951Z [2022-09-14T18:15:56.679Z] ['info'] https://codecov.io/github/libp2p/go-libp2p/commit/24459c5264da47b2d1431bc06473a13964fe09ca
+2022-09-14T18:15:56.6817285Z https://storage.googleapis.com/codecov/v4/raw/2022-09-14/4B701EF65B8045EB6714BC1A6319EBFB/24459c5264da47b2d1431bc06473a13964fe09ca/e9dacc90-11a5-4703-b0a2-471be193d87e.txt?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=GOOG1EJOGFN2JQ4OCTGA2MU5AEIT7OT5Z7HTFOAN2SPG4NWSN2UJYOY5U6LZQ%2F20220914%2FUS%2Fs3%2Faws4_request&X-Amz-Date=20220914T181556Z&X-Amz-Expires=10&X-Amz-SignedHeaders=host&X-Amz-Signature=65b1b5c2826d622a68d9f5362c99447b4ccc2b457473aa328b6972c1c5df7bc6
+2022-09-14T18:15:56.6820802Z [2022-09-14T18:15:56.680Z] ['info'] Uploading...
+2022-09-14T18:15:56.9943420Z [2022-09-14T18:15:56.992Z] ['info'] {"status":"success","resultURL":"https://codecov.io/github/libp2p/go-libp2p/commit/24459c5264da47b2d1431bc06473a13964fe09ca"}

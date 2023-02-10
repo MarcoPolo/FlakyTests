@@ -1,0 +1,7 @@
+2022-09-14T18:15:48.3003078Z ##[group]Run echo "COVERAGES=$(find . -type f -name 'module-coverage.txt' | tr -s '\n' ',' | sed 's/,$//')" >> $GITHUB_ENV
+2022-09-14T18:15:48.3003859Z [36;1mecho "COVERAGES=$(find . -type f -name 'module-coverage.txt' | tr -s '\n' ',' | sed 's/,$//')" >> $GITHUB_ENV[0m
+2022-09-14T18:15:48.3008375Z shell: C:/msys64/usr/bin\bash.EXE --noprofile --norc -e -o pipefail {0}
+2022-09-14T18:15:48.3008716Z env:
+2022-09-14T18:15:48.3008943Z   COVERAGES: 
+2022-09-14T18:15:48.3009227Z   GOROOT: C:\hostedtoolcache\windows\go\1.19.1\x64
+2022-09-14T18:15:48.3009534Z ##[endgroup]

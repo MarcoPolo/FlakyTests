@@ -1,0 +1,7 @@
+2022-09-14T18:03:36.8595705Z ##[group]Run echo "C:/msys64/usr/bin" >> $GITHUB_PATH
+2022-09-14T18:03:36.8596238Z [36;1mecho "C:/msys64/usr/bin" >> $GITHUB_PATH[0m
+2022-09-14T18:03:36.8612311Z shell: C:\Program Files\Git\bin\bash.EXE --noprofile --norc -e -o pipefail {0}
+2022-09-14T18:03:36.8612679Z env:
+2022-09-14T18:03:36.8612902Z   COVERAGES: 
+2022-09-14T18:03:36.8613187Z   GOROOT: C:\hostedtoolcache\windows\go\1.19.1\x64
+2022-09-14T18:03:36.8613494Z ##[endgroup]

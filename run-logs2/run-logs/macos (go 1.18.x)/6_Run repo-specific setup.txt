@@ -1,0 +1,6 @@
+2022-09-14T18:02:33.3511480Z Prepare all required actions
+2022-09-14T18:02:33.3561610Z ##[group]Run ./.github/actions/go-test-setup
+2022-09-14T18:02:33.3562180Z env:
+2022-09-14T18:02:33.3562440Z   COVERAGES: 
+2022-09-14T18:02:33.3562730Z   GOROOT: /Users/runner/hostedtoolcache/go/1.18.5/x64
+2022-09-14T18:02:33.3562990Z ##[endgroup]

@@ -1,0 +1,14 @@
+2022-09-14T18:02:19.1128226Z Prepare all required actions
+2022-09-14T18:02:19.1149792Z ##[group]Run ./.github/actions/go-test-setup
+2022-09-14T18:02:19.1150062Z env:
+2022-09-14T18:02:19.1150243Z   COVERAGES: 
+2022-09-14T18:02:19.1150487Z   GOROOT: /opt/hostedtoolcache/go/1.19.0/x64
+2022-09-14T18:02:19.1150726Z ##[endgroup]
+2022-09-14T18:02:19.1358995Z ##[group]Run sysctl -w net.core.rmem_max=2500000
+2022-09-14T18:02:19.1359318Z [36;1msysctl -w net.core.rmem_max=2500000[0m
+2022-09-14T18:02:19.1415963Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2022-09-14T18:02:19.1416230Z env:
+2022-09-14T18:02:19.1416420Z   COVERAGES: 
+2022-09-14T18:02:19.1416668Z   GOROOT: /opt/hostedtoolcache/go/1.19.0/x64
+2022-09-14T18:02:19.1416901Z ##[endgroup]
+2022-09-14T18:02:19.1509078Z sysctl: permission denied on key "net.core.rmem_max", ignoring

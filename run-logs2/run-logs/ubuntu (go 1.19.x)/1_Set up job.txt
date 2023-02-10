@@ -1,0 +1,38 @@
+2022-09-14T18:02:14.8134164Z Current runner version: '2.296.2'
+2022-09-14T18:02:14.8166235Z ##[group]Operating System
+2022-09-14T18:02:14.8166758Z Ubuntu
+2022-09-14T18:02:14.8167140Z 20.04.5
+2022-09-14T18:02:14.8167476Z LTS
+2022-09-14T18:02:14.8167741Z ##[endgroup]
+2022-09-14T18:02:14.8168064Z ##[group]Runner Image
+2022-09-14T18:02:14.8168411Z Image: ubuntu-20.04
+2022-09-14T18:02:14.8168725Z Version: 20220905.1
+2022-09-14T18:02:14.8169246Z Included Software: https://github.com/actions/runner-images/blob/ubuntu20/20220905.1/images/linux/Ubuntu2004-Readme.md
+2022-09-14T18:02:14.8169890Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu20%2F20220905.1
+2022-09-14T18:02:14.8170351Z ##[endgroup]
+2022-09-14T18:02:14.8170649Z ##[group]Runner Image Provisioner
+2022-09-14T18:02:14.8171035Z 1.0.0.0-main-20220907-1
+2022-09-14T18:02:14.8171364Z ##[endgroup]
+2022-09-14T18:02:14.8172304Z ##[group]GITHUB_TOKEN Permissions
+2022-09-14T18:02:14.8172904Z Actions: write
+2022-09-14T18:02:14.8173273Z Checks: write
+2022-09-14T18:02:14.8173798Z Contents: write
+2022-09-14T18:02:14.8174130Z Deployments: write
+2022-09-14T18:02:14.8174478Z Discussions: write
+2022-09-14T18:02:14.8174771Z Issues: write
+2022-09-14T18:02:14.8175090Z Metadata: read
+2022-09-14T18:02:14.8175411Z Packages: write
+2022-09-14T18:02:14.8175683Z Pages: write
+2022-09-14T18:02:14.8176042Z PullRequests: write
+2022-09-14T18:02:14.8176402Z RepositoryProjects: write
+2022-09-14T18:02:14.8176720Z SecurityEvents: write
+2022-09-14T18:02:14.8177051Z Statuses: write
+2022-09-14T18:02:14.8177390Z ##[endgroup]
+2022-09-14T18:02:14.8181041Z Secret source: Actions
+2022-09-14T18:02:14.8181603Z Prepare workflow directory
+2022-09-14T18:02:14.9143768Z Prepare all required actions
+2022-09-14T18:02:14.9327524Z Getting action download info
+2022-09-14T18:02:15.1829071Z Download action repository 'actions/checkout@v2' (SHA:7884fcad6b5d53d10323aee724dc68d8b9096a2e)
+2022-09-14T18:02:15.8014193Z Download action repository 'actions/setup-go@v2' (SHA:bfdd3570ce990073878bf10f6b2d79082de49492)
+2022-09-14T18:02:16.2369896Z Download action repository 'protocol/multiple-go-modules@v1.2' (SHA:a9324050387ecb413e92dac85a9def4bef505d46)
+2022-09-14T18:02:16.6511522Z Download action repository 'codecov/codecov-action@81cd2dc8148241f03f5839d295e000b8f761e378' (SHA:81cd2dc8148241f03f5839d295e000b8f761e378)

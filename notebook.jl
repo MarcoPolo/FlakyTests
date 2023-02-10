@@ -55,8 +55,20 @@ md"### All Flaky tests, sorted by recency, then count
 # ╔═╡ f9537631-7cda-4e38-8e47-105ad8aa2f31
 md"## Implementation"
 
+# ╔═╡ 58ba2ca1-9ff1-4c9f-9cca-70e843aa3d3c
+
+
+# ╔═╡ 1c6ae865-54ce-4a3b-a935-52709ed0c301
+function github_auth()
+	try
+		ENV["GITHUB_ACCESS_TOKEN"]
+	catch 
+		ENV["GITHUB_TOKEN"]
+	end
+end
+
 # ╔═╡ d3323ee3-9466-4ccb-b8a6-2c4f2e2a752e
-gh_auth = GitHub.authenticate(ENV["GITHUB_ACCESS_TOKEN"])
+gh_auth = GitHub.authenticate(github_auth())
 
 # ╔═╡ 105c8219-439f-4ab2-9b3d-a1a183c69144
 workflows = GitHub.gh_get_paged_json(GitHub.DEFAULT_API, "/repos/$repo/actions/workflows", auth = gh_auth)
@@ -102,6 +114,11 @@ begin
 	r=HTTP.request(:GET, "https://img.shields.io/badge/ci--flakiness--score-$score-blue")
 	write("./current-score.svg", r.body)
 	"Wrote badge for $score"
+end
+
+# ╔═╡ 0531fbdb-b383-43fd-bd39-2359402419ed
+failed_runs = filter(collect(wf_runs)) do run 
+	run["conclusion"] != "success"
 end
 
 # ╔═╡ 29e69e6c-a9fd-4e94-84ce-52d2dbb5451e
@@ -796,9 +813,12 @@ version = "17.4.0+0"
 # ╟─f4ed5a0d-a4ed-491d-bc2e-b857b23160a7
 # ╠═64c3a7a7-b810-4331-b303-8b86e031c2ec
 # ╠═65e07a73-3f05-4842-a33f-e1674697afe3
+# ╠═0531fbdb-b383-43fd-bd39-2359402419ed
+# ╠═58ba2ca1-9ff1-4c9f-9cca-70e843aa3d3c
 # ╠═89e58a37-d075-475e-b66a-3bfec1b6dae2
 # ╠═aa767183-6ffc-4345-90f6-fd9d0100fc44
-# ╟─d3323ee3-9466-4ccb-b8a6-2c4f2e2a752e
+# ╠═d3323ee3-9466-4ccb-b8a6-2c4f2e2a752e
+# ╠═1c6ae865-54ce-4a3b-a935-52709ed0c301
 # ╠═29e69e6c-a9fd-4e94-84ce-52d2dbb5451e
 # ╟─c658bd71-84b2-422c-bf64-5c35b0b9a09e
 # ╟─b593638c-0347-4c81-9552-c42a43867dad

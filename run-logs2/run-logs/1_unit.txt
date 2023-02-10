@@ -1,0 +1,219 @@
+2022-09-14T18:02:04.3404809Z ##[section]Starting: Prepare job unit
+2022-09-14T18:02:04.3406949Z Evaluating strategy
+2022-09-14T18:02:04.3407763Z Creating job 'ubuntu_1_18_x'
+2022-09-14T18:02:04.3408045Z Evaluating display name
+2022-09-14T18:02:04.3408465Z Evaluating: format('{0} (go {1})', matrix.os, matrix.go)
+2022-09-14T18:02:04.3408539Z ##[debug]Evaluating format:
+2022-09-14T18:02:04.3408576Z ##[debug]..Evaluating String:
+2022-09-14T18:02:04.3408617Z ##[debug]..=> '{0} (go {1})'
+2022-09-14T18:02:04.3408699Z ##[debug]..Evaluating Index:
+2022-09-14T18:02:04.3408731Z ##[debug]....Evaluating matrix:
+2022-09-14T18:02:04.3408794Z ##[debug]....=> Object
+2022-09-14T18:02:04.3408825Z ##[debug]....Evaluating String:
+2022-09-14T18:02:04.3408856Z ##[debug]....=> 'os'
+2022-09-14T18:02:04.3408891Z ##[debug]..=> 'ubuntu'
+2022-09-14T18:02:04.3408919Z ##[debug]..Evaluating Index:
+2022-09-14T18:02:04.3408947Z ##[debug]....Evaluating matrix:
+2022-09-14T18:02:04.3408978Z ##[debug]....=> Object
+2022-09-14T18:02:04.3408997Z ##[debug]....Evaluating String:
+2022-09-14T18:02:04.3409026Z ##[debug]....=> 'go'
+2022-09-14T18:02:04.3409074Z ##[debug]..=> '1.18.x'
+2022-09-14T18:02:04.3409111Z ##[debug]=> 'ubuntu (go 1.18.x)'
+2022-09-14T18:02:04.3409149Z Result: 'ubuntu (go 1.18.x)'
+2022-09-14T18:02:04.3409210Z Evaluating timeout
+2022-09-14T18:02:04.3409237Z Evaluating cancel timeout
+2022-09-14T18:02:04.3409266Z Evaluating continue on error
+2022-09-14T18:02:04.3409297Z Evaluating target
+2022-09-14T18:02:04.3409552Z Evaluating: format('{0}-latest', matrix.os)
+2022-09-14T18:02:04.3409602Z ##[debug]Evaluating format:
+2022-09-14T18:02:04.3409637Z ##[debug]..Evaluating String:
+2022-09-14T18:02:04.3409669Z ##[debug]..=> '{0}-latest'
+2022-09-14T18:02:04.3409722Z ##[debug]..Evaluating Index:
+2022-09-14T18:02:04.3409750Z ##[debug]....Evaluating matrix:
+2022-09-14T18:02:04.3409783Z ##[debug]....=> Object
+2022-09-14T18:02:04.3409804Z ##[debug]....Evaluating String:
+2022-09-14T18:02:04.3409833Z ##[debug]....=> 'os'
+2022-09-14T18:02:04.3409856Z ##[debug]..=> 'ubuntu'
+2022-09-14T18:02:04.3409882Z ##[debug]=> 'ubuntu-latest'
+2022-09-14T18:02:04.3409947Z Result: 'ubuntu-latest'
+2022-09-14T18:02:04.3410512Z Creating job 'ubuntu_1_19_x'
+2022-09-14T18:02:04.3410712Z Evaluating display name
+2022-09-14T18:02:04.3411000Z Evaluating: format('{0} (go {1})', matrix.os, matrix.go)
+2022-09-14T18:02:04.3411054Z ##[debug]Evaluating format:
+2022-09-14T18:02:04.3411110Z ##[debug]..Evaluating String:
+2022-09-14T18:02:04.3411142Z ##[debug]..=> '{0} (go {1})'
+2022-09-14T18:02:04.3411181Z ##[debug]..Evaluating Index:
+2022-09-14T18:02:04.3411209Z ##[debug]....Evaluating matrix:
+2022-09-14T18:02:04.3411241Z ##[debug]....=> Object
+2022-09-14T18:02:04.3411267Z ##[debug]....Evaluating String:
+2022-09-14T18:02:04.3411296Z ##[debug]....=> 'os'
+2022-09-14T18:02:04.3411320Z ##[debug]..=> 'ubuntu'
+2022-09-14T18:02:04.3411343Z ##[debug]..Evaluating Index:
+2022-09-14T18:02:04.3411371Z ##[debug]....Evaluating matrix:
+2022-09-14T18:02:04.3411401Z ##[debug]....=> Object
+2022-09-14T18:02:04.3411437Z ##[debug]....Evaluating String:
+2022-09-14T18:02:04.3411466Z ##[debug]....=> 'go'
+2022-09-14T18:02:04.3411486Z ##[debug]..=> '1.19.x'
+2022-09-14T18:02:04.3411515Z ##[debug]=> 'ubuntu (go 1.19.x)'
+2022-09-14T18:02:04.3411548Z Result: 'ubuntu (go 1.19.x)'
+2022-09-14T18:02:04.3411596Z Evaluating timeout
+2022-09-14T18:02:04.3411619Z Evaluating cancel timeout
+2022-09-14T18:02:04.3411646Z Evaluating continue on error
+2022-09-14T18:02:04.3411675Z Evaluating target
+2022-09-14T18:02:04.3411889Z Evaluating: format('{0}-latest', matrix.os)
+2022-09-14T18:02:04.3411935Z ##[debug]Evaluating format:
+2022-09-14T18:02:04.3411984Z ##[debug]..Evaluating String:
+2022-09-14T18:02:04.3412015Z ##[debug]..=> '{0}-latest'
+2022-09-14T18:02:04.3412046Z ##[debug]..Evaluating Index:
+2022-09-14T18:02:04.3412074Z ##[debug]....Evaluating matrix:
+2022-09-14T18:02:04.3412106Z ##[debug]....=> Object
+2022-09-14T18:02:04.3412126Z ##[debug]....Evaluating String:
+2022-09-14T18:02:04.3412156Z ##[debug]....=> 'os'
+2022-09-14T18:02:04.3412178Z ##[debug]..=> 'ubuntu'
+2022-09-14T18:02:04.3412231Z ##[debug]=> 'ubuntu-latest'
+2022-09-14T18:02:04.3412262Z Result: 'ubuntu-latest'
+2022-09-14T18:02:04.3412745Z Creating job 'windows_1_18_x'
+2022-09-14T18:02:04.3412934Z Evaluating display name
+2022-09-14T18:02:04.3413209Z Evaluating: format('{0} (go {1})', matrix.os, matrix.go)
+2022-09-14T18:02:04.3413262Z ##[debug]Evaluating format:
+2022-09-14T18:02:04.3413291Z ##[debug]..Evaluating String:
+2022-09-14T18:02:04.3413322Z ##[debug]..=> '{0} (go {1})'
+2022-09-14T18:02:04.3413359Z ##[debug]..Evaluating Index:
+2022-09-14T18:02:04.3413388Z ##[debug]....Evaluating matrix:
+2022-09-14T18:02:04.3413419Z ##[debug]....=> Object
+2022-09-14T18:02:04.3413442Z ##[debug]....Evaluating String:
+2022-09-14T18:02:04.3413471Z ##[debug]....=> 'os'
+2022-09-14T18:02:04.3413497Z ##[debug]..=> 'windows'
+2022-09-14T18:02:04.3413522Z ##[debug]..Evaluating Index:
+2022-09-14T18:02:04.3413549Z ##[debug]....Evaluating matrix:
+2022-09-14T18:02:04.3413595Z ##[debug]....=> Object
+2022-09-14T18:02:04.3413613Z ##[debug]....Evaluating String:
+2022-09-14T18:02:04.3413642Z ##[debug]....=> 'go'
+2022-09-14T18:02:04.3413661Z ##[debug]..=> '1.18.x'
+2022-09-14T18:02:04.3413689Z ##[debug]=> 'windows (go 1.18.x)'
+2022-09-14T18:02:04.3413724Z Result: 'windows (go 1.18.x)'
+2022-09-14T18:02:04.3413770Z Evaluating timeout
+2022-09-14T18:02:04.3413792Z Evaluating cancel timeout
+2022-09-14T18:02:04.3413819Z Evaluating continue on error
+2022-09-14T18:02:04.3413848Z Evaluating target
+2022-09-14T18:02:04.3414045Z Evaluating: format('{0}-latest', matrix.os)
+2022-09-14T18:02:04.3414110Z ##[debug]Evaluating format:
+2022-09-14T18:02:04.3414138Z ##[debug]..Evaluating String:
+2022-09-14T18:02:04.3414168Z ##[debug]..=> '{0}-latest'
+2022-09-14T18:02:04.3414201Z ##[debug]..Evaluating Index:
+2022-09-14T18:02:04.3414231Z ##[debug]....Evaluating matrix:
+2022-09-14T18:02:04.3414267Z ##[debug]....=> Object
+2022-09-14T18:02:04.3414289Z ##[debug]....Evaluating String:
+2022-09-14T18:02:04.3414319Z ##[debug]....=> 'os'
+2022-09-14T18:02:04.3414342Z ##[debug]..=> 'windows'
+2022-09-14T18:02:04.3414369Z ##[debug]=> 'windows-latest'
+2022-09-14T18:02:04.3414404Z Result: 'windows-latest'
+2022-09-14T18:02:04.3414915Z Creating job 'windows_1_19_x'
+2022-09-14T18:02:04.3415090Z Evaluating display name
+2022-09-14T18:02:04.3415329Z Evaluating: format('{0} (go {1})', matrix.os, matrix.go)
+2022-09-14T18:02:04.3415382Z ##[debug]Evaluating format:
+2022-09-14T18:02:04.3415413Z ##[debug]..Evaluating String:
+2022-09-14T18:02:04.3415445Z ##[debug]..=> '{0} (go {1})'
+2022-09-14T18:02:04.3415501Z ##[debug]..Evaluating Index:
+2022-09-14T18:02:04.3415530Z ##[debug]....Evaluating matrix:
+2022-09-14T18:02:04.3415563Z ##[debug]....=> Object
+2022-09-14T18:02:04.3415587Z ##[debug]....Evaluating String:
+2022-09-14T18:02:04.3415617Z ##[debug]....=> 'os'
+2022-09-14T18:02:04.3415640Z ##[debug]..=> 'windows'
+2022-09-14T18:02:04.3415667Z ##[debug]..Evaluating Index:
+2022-09-14T18:02:04.3415696Z ##[debug]....Evaluating matrix:
+2022-09-14T18:02:04.3415726Z ##[debug]....=> Object
+2022-09-14T18:02:04.3415743Z ##[debug]....Evaluating String:
+2022-09-14T18:02:04.3415771Z ##[debug]....=> 'go'
+2022-09-14T18:02:04.3415807Z ##[debug]..=> '1.19.x'
+2022-09-14T18:02:04.3415836Z ##[debug]=> 'windows (go 1.19.x)'
+2022-09-14T18:02:04.3415868Z Result: 'windows (go 1.19.x)'
+2022-09-14T18:02:04.3415914Z Evaluating timeout
+2022-09-14T18:02:04.3415935Z Evaluating cancel timeout
+2022-09-14T18:02:04.3415962Z Evaluating continue on error
+2022-09-14T18:02:04.3415992Z Evaluating target
+2022-09-14T18:02:04.3416184Z Evaluating: format('{0}-latest', matrix.os)
+2022-09-14T18:02:04.3416229Z ##[debug]Evaluating format:
+2022-09-14T18:02:04.3416256Z ##[debug]..Evaluating String:
+2022-09-14T18:02:04.3416286Z ##[debug]..=> '{0}-latest'
+2022-09-14T18:02:04.3416333Z ##[debug]..Evaluating Index:
+2022-09-14T18:02:04.3416362Z ##[debug]....Evaluating matrix:
+2022-09-14T18:02:04.3416393Z ##[debug]....=> Object
+2022-09-14T18:02:04.3416415Z ##[debug]....Evaluating String:
+2022-09-14T18:02:04.3416473Z ##[debug]....=> 'os'
+2022-09-14T18:02:04.3416496Z ##[debug]..=> 'windows'
+2022-09-14T18:02:04.3416522Z ##[debug]=> 'windows-latest'
+2022-09-14T18:02:04.3416556Z Result: 'windows-latest'
+2022-09-14T18:02:04.3417046Z Creating job 'macos_1_18_x'
+2022-09-14T18:02:04.3417215Z Evaluating display name
+2022-09-14T18:02:04.3417480Z Evaluating: format('{0} (go {1})', matrix.os, matrix.go)
+2022-09-14T18:02:04.3417532Z ##[debug]Evaluating format:
+2022-09-14T18:02:04.3417560Z ##[debug]..Evaluating String:
+2022-09-14T18:02:04.3417592Z ##[debug]..=> '{0} (go {1})'
+2022-09-14T18:02:04.3417628Z ##[debug]..Evaluating Index:
+2022-09-14T18:02:04.3417655Z ##[debug]....Evaluating matrix:
+2022-09-14T18:02:04.3417686Z ##[debug]....=> Object
+2022-09-14T18:02:04.3417708Z ##[debug]....Evaluating String:
+2022-09-14T18:02:04.3417736Z ##[debug]....=> 'os'
+2022-09-14T18:02:04.3417759Z ##[debug]..=> 'macos'
+2022-09-14T18:02:04.3417799Z ##[debug]..Evaluating Index:
+2022-09-14T18:02:04.3417826Z ##[debug]....Evaluating matrix:
+2022-09-14T18:02:04.3417855Z ##[debug]....=> Object
+2022-09-14T18:02:04.3417873Z ##[debug]....Evaluating String:
+2022-09-14T18:02:04.3417901Z ##[debug]....=> 'go'
+2022-09-14T18:02:04.3417920Z ##[debug]..=> '1.18.x'
+2022-09-14T18:02:04.3417947Z ##[debug]=> 'macos (go 1.18.x)'
+2022-09-14T18:02:04.3417976Z Result: 'macos (go 1.18.x)'
+2022-09-14T18:02:04.3418020Z Evaluating timeout
+2022-09-14T18:02:04.3418046Z Evaluating cancel timeout
+2022-09-14T18:02:04.3418073Z Evaluating continue on error
+2022-09-14T18:02:04.3418103Z Evaluating target
+2022-09-14T18:02:04.3418323Z Evaluating: format('{0}-latest', matrix.os)
+2022-09-14T18:02:04.3418368Z ##[debug]Evaluating format:
+2022-09-14T18:02:04.3418395Z ##[debug]..Evaluating String:
+2022-09-14T18:02:04.3418425Z ##[debug]..=> '{0}-latest'
+2022-09-14T18:02:04.3418453Z ##[debug]..Evaluating Index:
+2022-09-14T18:02:04.3418480Z ##[debug]....Evaluating matrix:
+2022-09-14T18:02:04.3418511Z ##[debug]....=> Object
+2022-09-14T18:02:04.3418531Z ##[debug]....Evaluating String:
+2022-09-14T18:02:04.3418560Z ##[debug]....=> 'os'
+2022-09-14T18:02:04.3418581Z ##[debug]..=> 'macos'
+2022-09-14T18:02:04.3418623Z ##[debug]=> 'macos-latest'
+2022-09-14T18:02:04.3418653Z Result: 'macos-latest'
+2022-09-14T18:02:04.3419128Z Creating job 'macos_1_19_x'
+2022-09-14T18:02:04.3419299Z Evaluating display name
+2022-09-14T18:02:04.3419786Z Evaluating: format('{0} (go {1})', matrix.os, matrix.go)
+2022-09-14T18:02:04.3419859Z ##[debug]Evaluating format:
+2022-09-14T18:02:04.3419887Z ##[debug]..Evaluating String:
+2022-09-14T18:02:04.3419918Z ##[debug]..=> '{0} (go {1})'
+2022-09-14T18:02:04.3419960Z ##[debug]..Evaluating Index:
+2022-09-14T18:02:04.3419988Z ##[debug]....Evaluating matrix:
+2022-09-14T18:02:04.3420019Z ##[debug]....=> Object
+2022-09-14T18:02:04.3420041Z ##[debug]....Evaluating String:
+2022-09-14T18:02:04.3420072Z ##[debug]....=> 'os'
+2022-09-14T18:02:04.3420098Z ##[debug]..=> 'macos'
+2022-09-14T18:02:04.3420121Z ##[debug]..Evaluating Index:
+2022-09-14T18:02:04.3420150Z ##[debug]....Evaluating matrix:
+2022-09-14T18:02:04.3420178Z ##[debug]....=> Object
+2022-09-14T18:02:04.3420216Z ##[debug]....Evaluating String:
+2022-09-14T18:02:04.3420245Z ##[debug]....=> 'go'
+2022-09-14T18:02:04.3420264Z ##[debug]..=> '1.19.x'
+2022-09-14T18:02:04.3420292Z ##[debug]=> 'macos (go 1.19.x)'
+2022-09-14T18:02:04.3420326Z Result: 'macos (go 1.19.x)'
+2022-09-14T18:02:04.3420374Z Evaluating timeout
+2022-09-14T18:02:04.3420397Z Evaluating cancel timeout
+2022-09-14T18:02:04.3420424Z Evaluating continue on error
+2022-09-14T18:02:04.3420456Z Evaluating target
+2022-09-14T18:02:04.3420657Z Evaluating: format('{0}-latest', matrix.os)
+2022-09-14T18:02:04.3420705Z ##[debug]Evaluating format:
+2022-09-14T18:02:04.3420751Z ##[debug]..Evaluating String:
+2022-09-14T18:02:04.3420781Z ##[debug]..=> '{0}-latest'
+2022-09-14T18:02:04.3420809Z ##[debug]..Evaluating Index:
+2022-09-14T18:02:04.3420837Z ##[debug]....Evaluating matrix:
+2022-09-14T18:02:04.3420868Z ##[debug]....=> Object
+2022-09-14T18:02:04.3420888Z ##[debug]....Evaluating String:
+2022-09-14T18:02:04.3421093Z ##[debug]....=> 'os'
+2022-09-14T18:02:04.3421116Z ##[debug]..=> 'macos'
+2022-09-14T18:02:04.3421140Z ##[debug]=> 'macos-latest'
+2022-09-14T18:02:04.3421170Z Result: 'macos-latest'
+2022-09-14T18:02:04.3424076Z ##[section]Finishing: Prepare job unit

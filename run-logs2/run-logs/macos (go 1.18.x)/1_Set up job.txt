@@ -1,0 +1,38 @@
+2022-09-14T18:02:16.4461730Z Current runner version: '2.296.2'
+2022-09-14T18:02:16.4507650Z ##[group]Operating System
+2022-09-14T18:02:16.4508590Z macOS
+2022-09-14T18:02:16.4509200Z 11.6.8
+2022-09-14T18:02:16.4509780Z 20G730
+2022-09-14T18:02:16.4510220Z ##[endgroup]
+2022-09-14T18:02:16.4510840Z ##[group]Runner Image
+2022-09-14T18:02:16.4511640Z Image: macos-11
+2022-09-14T18:02:16.4512110Z Version: 20220906.1
+2022-09-14T18:02:16.4512920Z Included Software: https://github.com/actions/runner-images/blob/macOS-11/20220906.1/images/macos/macos-11-Readme.md
+2022-09-14T18:02:16.4513900Z Image Release: https://github.com/actions/runner-images/releases/tag/macOS-11%2F20220906.1
+2022-09-14T18:02:16.4514500Z ##[endgroup]
+2022-09-14T18:02:16.4515280Z ##[group]Runner Image Provisioner
+2022-09-14T18:02:16.4515960Z 1.0.0.0-main-20220907-1
+2022-09-14T18:02:16.4516410Z ##[endgroup]
+2022-09-14T18:02:16.4517930Z ##[group]GITHUB_TOKEN Permissions
+2022-09-14T18:02:16.4519050Z Actions: write
+2022-09-14T18:02:16.4519680Z Checks: write
+2022-09-14T18:02:16.4520680Z Contents: write
+2022-09-14T18:02:16.4521430Z Deployments: write
+2022-09-14T18:02:16.4522090Z Discussions: write
+2022-09-14T18:02:16.4522540Z Issues: write
+2022-09-14T18:02:16.4523130Z Metadata: read
+2022-09-14T18:02:16.4523760Z Packages: write
+2022-09-14T18:02:16.4524330Z Pages: write
+2022-09-14T18:02:16.4524950Z PullRequests: write
+2022-09-14T18:02:16.4525680Z RepositoryProjects: write
+2022-09-14T18:02:16.4526190Z SecurityEvents: write
+2022-09-14T18:02:16.4526820Z Statuses: write
+2022-09-14T18:02:16.4527580Z ##[endgroup]
+2022-09-14T18:02:16.4533010Z Secret source: Actions
+2022-09-14T18:02:16.4534190Z Prepare workflow directory
+2022-09-14T18:02:16.5862960Z Prepare all required actions
+2022-09-14T18:02:16.6119110Z Getting action download info
+2022-09-14T18:02:16.8626650Z Download action repository 'actions/checkout@v2' (SHA:7884fcad6b5d53d10323aee724dc68d8b9096a2e)
+2022-09-14T18:02:18.2707940Z Download action repository 'actions/setup-go@v2' (SHA:bfdd3570ce990073878bf10f6b2d79082de49492)
+2022-09-14T18:02:18.7291350Z Download action repository 'protocol/multiple-go-modules@v1.2' (SHA:a9324050387ecb413e92dac85a9def4bef505d46)
+2022-09-14T18:02:19.0549820Z Download action repository 'codecov/codecov-action@81cd2dc8148241f03f5839d295e000b8f761e378' (SHA:81cd2dc8148241f03f5839d295e000b8f761e378)
