@@ -41,6 +41,14 @@ repo = "libp2p/go-libp2p"
 # ╔═╡ 8142cf70-df0a-40b4-979c-2fd5ecc254f2
 md"Workflow to check:"
 
+# ╔═╡ e49b7891-3cf7-426b-a8b9-893377daaa38
+md"""
+## Notes:
+
+- This analysis works by seeing which test failed on the first try, but passed when reran with no code changes.
+- "Missing Test Name" is likely a test timeout
+"""
+
 # ╔═╡ c2320b04-276d-43e3-b166-d7b151f179ff
 defaultWorkflowName = "Go Test"
 
@@ -789,11 +797,12 @@ version = "17.4.0+0"
 # ╟─6e589fe5-32bf-4a62-b9fb-e3e43e461fb8
 # ╟─8142cf70-df0a-40b4-979c-2fd5ecc254f2
 # ╟─8799c8e7-a708-4a8a-ba77-5065662e8ec4
+# ╟─e49b7891-3cf7-426b-a8b9-893377daaa38
 # ╟─c2320b04-276d-43e3-b166-d7b151f179ff
 # ╟─26df8f0a-5a1e-4c33-af11-e1c983df4484
 # ╟─29c69892-54bc-4882-a1ea-3b978dfed033
 # ╟─be8d0bac-9e22-4b99-bcb9-304e28da169d
-# ╟─96d99d5b-b52a-47fe-aebd-96ca712d0f36
+# ╠═96d99d5b-b52a-47fe-aebd-96ca712d0f36
 # ╟─38a79f14-1905-4ff7-8dcb-00c0d0cffae1
 # ╟─5fd73cbc-31d5-4c9b-a7a5-b1d7746ffbd7
 # ╟─f9537631-7cda-4e38-8e47-105ad8aa2f31
