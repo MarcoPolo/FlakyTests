@@ -47,6 +47,13 @@ defaultWorkflowName = "Go Test"
 # ╔═╡ 29c69892-54bc-4882-a1ea-3b978dfed033
 md"### Top 10 Flaky tests, sorted by recency, then count"
 
+# ╔═╡ 96d99d5b-b52a-47fe-aebd-96ca712d0f36
+function find_test_name_or_nothing(log)
+	let m = match(r"(Test[^\s]*)", log)
+		if m == nothing "Missing Test Name" else m[1] end
+	end
+end
+
 # ╔═╡ 38a79f14-1905-4ff7-8dcb-00c0d0cffae1
 md"### All Flaky tests, sorted by recency, then count
 (expand the array, to see them all)
@@ -138,7 +145,7 @@ end
 
 # ╔═╡ 04b17c05-af01-4a2c-a4ec-c44945466f41
 function parse_os(s)
-	match(r"([a-z]+)",s)[1]
+	match(r"\s([a-z]+)",s)[1]
 end
 
 # ╔═╡ 92b717b5-ef2d-4580-b98b-224786e06d92
@@ -182,7 +189,7 @@ flaky_tests_table = @chain DataFrame(flaky_tests_transformed) begin
 	transform(:3 => ByRow(x -> x["html_url"]) => :html_url)
 	transform(:3 => ByRow(x -> x["id"]) => :id)
 	rename(:3 => :run)
-	transform(:2 => ByRow(x -> match(r"(Test[^\s]*)", x)[1]) => :Test)
+	transform(:2 => ByRow(find_test_name_or_nothing) => :Test)
 	rename(:1 => :Filename)
 	rename(:2 => :FailLine)
 	groupby([:Test, :id])
@@ -208,7 +215,7 @@ end
 
 # ╔═╡ 8d2036e8-fadb-4da4-95ed-35c22fec8b16
 flaky_tests_df = @chain map(flaky_tests_transformed) do l
-	match(r"(Test[^\s]*)", l[2])[1]
+	find_test_name_or_nothing(l[2])
 end begin
 	DataFrame(Test=_, OS=map(x->parse_os(x[1]),flaky_tests_transformed), run=map(x -> x[3], flaky_tests_transformed))
 	transform(:run => ByRow(x -> x["id"]) => :id)
@@ -786,13 +793,14 @@ version = "17.4.0+0"
 # ╟─26df8f0a-5a1e-4c33-af11-e1c983df4484
 # ╟─29c69892-54bc-4882-a1ea-3b978dfed033
 # ╟─be8d0bac-9e22-4b99-bcb9-304e28da169d
+# ╟─96d99d5b-b52a-47fe-aebd-96ca712d0f36
 # ╟─38a79f14-1905-4ff7-8dcb-00c0d0cffae1
 # ╟─5fd73cbc-31d5-4c9b-a7a5-b1d7746ffbd7
 # ╟─f9537631-7cda-4e38-8e47-105ad8aa2f31
 # ╟─105c8219-439f-4ab2-9b3d-a1a183c69144
 # ╟─8b9dd7dd-52ea-4a9c-8b18-08204d6e5f1a
 # ╟─4e75e173-7da7-4aed-8b9d-98eb975ea87c
-# ╟─3f4e98f7-6856-474a-8094-bb4ba49eb578
+# ╠═3f4e98f7-6856-474a-8094-bb4ba49eb578
 # ╟─f4ed5a0d-a4ed-491d-bc2e-b857b23160a7
 # ╠═64c3a7a7-b810-4331-b303-8b86e031c2ec
 # ╠═65e07a73-3f05-4842-a33f-e1674697afe3
@@ -800,13 +808,13 @@ version = "17.4.0+0"
 # ╠═aa767183-6ffc-4345-90f6-fd9d0100fc44
 # ╟─d3323ee3-9466-4ccb-b8a6-2c4f2e2a752e
 # ╠═29e69e6c-a9fd-4e94-84ce-52d2dbb5451e
-# ╟─c658bd71-84b2-422c-bf64-5c35b0b9a09e
-# ╟─b593638c-0347-4c81-9552-c42a43867dad
-# ╟─d69e309e-7e21-40c4-bca9-d19fab26541b
+# ╠═c658bd71-84b2-422c-bf64-5c35b0b9a09e
+# ╠═b593638c-0347-4c81-9552-c42a43867dad
+# ╠═d69e309e-7e21-40c4-bca9-d19fab26541b
 # ╠═d76b3c2e-bf48-40f2-885b-3658d95fc986
 # ╟─7bc99df9-d9e7-4303-b36e-84faef7cc325
 # ╠═8d2036e8-fadb-4da4-95ed-35c22fec8b16
-# ╟─04b17c05-af01-4a2c-a4ec-c44945466f41
+# ╠═04b17c05-af01-4a2c-a4ec-c44945466f41
 # ╠═4bfea66a-28f7-4c5a-adcc-fc04ff5cddd3
 # ╠═429bb5e5-6c12-4ebc-adb9-5f6e2b65dfac
 # ╟─92b717b5-ef2d-4580-b98b-224786e06d92
